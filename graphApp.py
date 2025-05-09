@@ -5,6 +5,9 @@ import matplotlib.pyplot as plt
 st.set_page_config(page_title="Demostración de Aplicaciones con Grafos", layout="wide")
 st.title("🧠 Aplicaciones Reales con Teoría de Grafos")
 
+st.write("Sistemas Autoadaptables, Universidad EAFIT, 2025")
+st.write("Magda Rodriguez, Camilo Echavarría, Luis Hurtado")
+
 aplicacion = st.sidebar.selectbox("Selecciona una aplicación para visualizar:", [
     "1. Planificación de rutas (Dijkstra)",
     "2. Red Social (Grado de Conexión)",
@@ -33,7 +36,7 @@ if aplicacion == "1. Planificación de rutas (Dijkstra)":
         st.success(f"Ruta más corta: {' → '.join(path)} (Distancia: {dist})")
 
         pos = nx.spring_layout(G)
-        fig, ax = plt.subplots(figsize=(10, 6))
+        fig, ax = plt.subplots(figsize=(20, 5))
         nx.draw(G, pos, with_labels=True, node_color='skyblue', node_size=2000, font_weight='bold', ax=ax)
         nx.draw_networkx_edge_labels(G, pos, edge_labels=nx.get_edge_attributes(G, 'weight'), ax=ax)
         nx.draw_networkx_edges(G, pos, edgelist=list(zip(path, path[1:])), edge_color='red', width=3, ax=ax)
@@ -50,7 +53,7 @@ elif aplicacion == "2. Red Social (Grado de Conexión)":
         ("Luis", "Carlos"),
         ("Ana", "Marta"),
         ("Marta", "Carlos"),
-        ("Carlos", "Elena"),
+        ("Carlos", "Jorge"),
         ("Luis", "Elena"),
         ("Elena", "Jorge")
     ])
@@ -63,7 +66,7 @@ elif aplicacion == "2. Red Social (Grado de Conexión)":
         st.write(f"{destino}: {pasos} {'paso' if pasos == 1 else 'pasos'}")
 
     pos = nx.spring_layout(G, seed=42)
-    fig, ax = plt.subplots(figsize=(8, 6))
+    fig, ax = plt.subplots(figsize=(20, 5))
     nx.draw(G, pos, with_labels=True, node_color='lightgreen', node_size=2000, font_weight='bold', ax=ax)
     st.pyplot(fig)
 
@@ -85,7 +88,7 @@ elif aplicacion == "3. Recomendador de productos (Grafo bipartito)":
 
     st.write("Usuarios y productos conectados si hubo una interacción (compra, interés, etc.)")
     pos = nx.bipartite_layout(B, usuarios)
-    fig, ax = plt.subplots(figsize=(8, 6))
+    fig, ax = plt.subplots(figsize=(20, 5))
     nx.draw(B, pos, with_labels=True, node_color=['lightblue' if n in usuarios else 'salmon' for n in B.nodes],
             node_size=2000, font_weight='bold', ax=ax)
     st.pyplot(fig)
