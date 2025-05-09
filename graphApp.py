@@ -6,7 +6,7 @@ st.set_page_config(page_title="Demostración de Aplicaciones con Grafos", layout
 st.title("🧠 Aplicaciones Reales con Teoría de Grafos")
 
 st.write("Sistemas Autoadaptables, Universidad EAFIT, 2025")
-st.write("Magda Rodriguez, Camilo Echavarría, Luis Hurtado")
+st.write("Magda Rodriguez, Camilo Echavarría, Luis Miguel Hurtado")
 
 aplicacion = st.sidebar.selectbox("Selecciona una aplicación para visualizar:", [
     "1. Planificación de rutas (Dijkstra)",
